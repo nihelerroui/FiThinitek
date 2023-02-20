@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="711.0" prefWidth="933.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.Connexion3A17.gui.AuthenticationController">
+   <children>
+      <Label layoutX="378.0" layoutY="221.0" text="lieuA">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="256.0" layoutY="217.0" prefHeight="25.0" prefWidth="30.0" text="lieuD">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <TextField fx:id="lieua" layoutX="431.0" layoutY="217.0" prefHeight="17.0" prefWidth="72.0" />
+      <TextField fx:id="tflieud" layoutX="286.0" layoutY="217.0" prefHeight="25.0" prefWidth="60.0" />
+      <Button fx:id="btnValider" layoutX="256.0" layoutY="505.0" mnemonicParsing="false" onAction="#ajouteRe" prefHeight="25.0" prefWidth="106.0" text="réserver" />
+      <Button fx:id="btnUpdate" layoutX="378.0" layoutY="504.0" mnemonicParsing="false" onAction="#updateRe" prefHeight="28.0" prefWidth="106.0" text="modifié" />
+      <Button fx:id="btndelete" layoutX="510.0" layoutY="505.0" mnemonicParsing="false" onAction="#deleteRe" prefHeight="25.0" prefWidth="95.0" text="annuler " />
+      <TableView fx:id="tableuser" layoutX="242.0" layoutY="271.0" prefHeight="200.0" prefWidth="536.0">
+        <columns>
+          <TableColumn fx:id="colD" prefWidth="94.0" text="lieu de départ" />
+          <TableColumn fx:id="colA" prefWidth="90.0" text="lieu d'arrivé" />
+            <TableColumn fx:id="colnbplace" prefWidth="112.0" text="nombre de place" />
+            <TableColumn fx:id="coldate" prefWidth="94.0" text="date" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="-9.0" layoutY="-4.0" prefHeight="732.0" prefWidth="240.0" style="-fx-background-color: #990EFF;">
+         <children>
+            <ImageView fitHeight="163.0" fitWidth="269.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../Downloads/324384817_3191076247814358_6963662008871323400_n.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="21.0" layoutY="191.0" prefHeight="32.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="36.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../Bureau/1x/Fichier%202.png" />
+                     </image>
+                  </ImageView>
+                  <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: transparent;" text="Utilisateur">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox layoutX="21.0" layoutY="238.0" prefHeight="36.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="36.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../Bureau/1x/Fichier%202.png" />
+                     </image>
+                  </ImageView>
+                  <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="170.0" style="-fx-background-color: transparent;" text=" Demande covoiturage">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox layoutX="21.0" layoutY="296.0" prefHeight="36.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="36.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../Bureau/1x/Fichier%202.png" />
+                     </image>
+                  </ImageView>
+                  <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="170.0" style="-fx-background-color: transparent;" text="Offre covoiturage">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox layoutX="21.0" layoutY="348.0" prefHeight="36.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="36.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../Bureau/1x/Fichier%202.png" />
+                     </image>
+                  </ImageView>
+                  <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="170.0" style="-fx-background-color: transparent;" text="Réclamation">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox layoutX="21.0" layoutY="405.0" prefHeight="36.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="36.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../Bureau/1x/Fichier%202.png" />
+                     </image>
+                  </ImageView>
+                  <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="170.0" style="-fx-background-color: transparent;" text="Avis">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox layoutX="21.0" layoutY="458.0" prefHeight="36.0" prefWidth="219.0">
+               <children>
+                  <ImageView fitHeight="36.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../../Bureau/1x/Fichier%202.png" />
+                     </image>
+                  </ImageView>
+                  <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="170.0" style="-fx-background-color: transparent;" text="Maintenance">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children></AnchorPane>
+      <Label layoutX="537.0" layoutY="221.0" text="nbplace" />
+      <Label layoutX="683.0" layoutY="221.0" text="date" />
+      <TextField fx:id="textplace" layoutX="595.0" layoutY="217.0" prefHeight="25.0" prefWidth="60.0" />
+      <TextField fx:id="date" layoutX="739.0" layoutY="217.0" prefHeight="17.0" prefWidth="79.0" />
+      <Button fx:id="btnpre" layoutX="263.0" layoutY="65.0" mnemonicParsing="false" onAction="#goBack" style="-fx-background-color: #00000000;" text="précedent">
+         <graphic>
+            <ImageView fitHeight="28.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../Bureau/1x/Fichier%201.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label layoutX="415.0" layoutY="38.0" text="Demande covoiturage">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
