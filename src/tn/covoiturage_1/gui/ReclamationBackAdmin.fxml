@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="602.0" prefWidth="842.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tn.covoiturage_1.gui.ReclamationBackController">
+   <children>
+      <TableView fx:id="table" layoutX="103.0" layoutY="110.0" prefHeight="396.0" prefWidth="637.0">
+         <columns>
+            <TableColumn fx:id="tab_id" prefWidth="98.0" text="ID" />
+            <TableColumn fx:id="tab_intitule" minWidth="0.0" prefWidth="151.0" text="Intitule" />
+            <TableColumn fx:id="tab_contenu" minWidth="7.0" prefWidth="250.0" text="Contenu" />
+            <TableColumn fx:id="tab_id_usr" prefWidth="137.0" text="id_usr" />
+         </columns>
+      </TableView>
+      <Button fx:id="tfback" layoutX="641.0" layoutY="533.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Button fx:id="tftraite" layoutX="295.0" layoutY="515.0" mnemonicParsing="false" onAction="#treat" prefHeight="67.0" prefWidth="254.0" text="Terminer" textFill="#140101" />
+      <Text fill="#7035a1" layoutX="288.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reclamation" wrappingWidth="236.6708984375">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="82.0" fitWidth="145.0" layoutX="721.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ressources/images/logo2.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="91.0" fitWidth="120.0" layoutX="14.0" layoutY="515.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../ressources/images/voiture.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
