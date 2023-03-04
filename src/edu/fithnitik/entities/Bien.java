@@ -1,83 +1,91 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.fithnitik.entities;
 
+import java.sql.Date;
+import java.util.List;
+
+/**
+ *
+ * @author Nadhem
+ */
 public class Bien {
     private int id;
-    private String nomRecepteur;
-    private String description;
-    private String reference;
-    private String telRecept;
-    private int quantite;
-    
-    public Bien(){
-        
+    private String lieud;
+    private String lieua;
+    private Date dated;
+    private String num;
+
+    public Bien() {
     }
 
-    public Bien(int id, String nomRecepteur, String description, String reference, String telRecept, int quantite) {
+    public Bien(int id, String lieud, String lieua, Date dated, String num) {
         this.id = id;
-        this.nomRecepteur = nomRecepteur;
-        this.description = description;
-        this.reference = reference;
-        this.telRecept = telRecept;
-        this.quantite = quantite;
+        this.lieud = lieud;
+        this.lieua = lieua;
+        this.dated = dated;
+        this.num = num;
     }
-   
+
+    public Bien(String lieud, String lieua, Date dated, String num) {
+        this.lieud = lieud;
+        this.lieua = lieua;
+        this.dated = dated;
+        this.num = num;
+    }
+
+    public Bien(int aInt, String string, String string0, Date date, String string1, boolean add) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId() {
         return id;
     }
 
-    public String getNomRecepteur() {
-        return nomRecepteur;
+    public String getLieud() {
+        return lieud;
     }
 
-    public String getDescription() {
-        return description;
+    public String getLieua() {
+        return lieua;
     }
 
-    public String getReference() {
-        return reference;
+    public Date getDated() {
+        return dated;
     }
 
-    public String getTelRecept() {
-        return telRecept;
-    }
-
-    public int getQuantite() {
-        return quantite;
+    public String getNum() {
+        return num;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setNomRecepteur(String nomRecepteur) {
-        this.nomRecepteur = nomRecepteur;
+    public void setLieud(String lieud) {
+        this.lieud = lieud;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLieua(String lieua) {
+        this.lieua = lieua;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setDated(Date dated) {
+        this.dated = dated;
     }
 
-    public void setTelRecept(String telRecept) {
-        this.telRecept = telRecept;
-    }
-
-    public void setQuantite(int quantite) {
-        this.quantite = quantite;
+    public void setNum(String num) {
+        this.num = num;
     }
 
     @Override
     public String toString() {
-        return "Bien{" + "id=" + id + ", nomRecepteur=" + nomRecepteur + ", description=" + description + ", reference=" + reference + ", telRecept=" + telRecept + ", quantite=" + quantite + '}';
+        return "Bien{" + "id=" + id + ", lieud=" + lieud + ", lieua=" + lieua + ", dated=" + dated + ", num=" + num + '}';
     }
-
-   
     
-       
-   }
     
-
+    
+}

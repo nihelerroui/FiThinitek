@@ -1,29 +1,50 @@
-
 package edu.fithnitik.entities;
 
 import java.sql.Date;
-
+import java.util.List;
 
 public class OffreCovoiturage {
+
+
+
+
+
     private int id;
     private String matricule;
     private String marque;
     private Date dateD;
     private String lieuD;
     private String lieuA;
-    private boolean dispo;
-    private int ndPlace;
+    private String dispo;
+    private int nbPlace;
     private String numTel;
-    private int idUsr;
-    private int idAvis;
     private int idDemande;
-    
-    
-   public OffreCovoiturage(){
-       
-   }
+    private double distance;
+    private String depart;
+    private String arriver;
+    private float latdepart;
+    private float latarriver;
+    private float londepart;
+    private float lonarriver;
 
-    public OffreCovoiturage(int id, String matricule, String marque, Date dateD, String lieuD, String lieuA, boolean dispo, int ndPlace, String numTel, int idUsr, int idAvis, int idDemande) {
+    public OffreCovoiturage() {
+
+    }
+
+    public OffreCovoiturage(String matricule, String marque, Date dateD, String lieuD, String lieuA, String dispo, int nbPlace, String numTel, int idDemande, double distance) {
+        this.matricule = matricule;
+        this.marque = marque;
+        this.dateD = dateD;
+        this.lieuD = lieuD;
+        this.lieuA = lieuA;
+        this.dispo = dispo;
+        this.nbPlace = nbPlace;
+        this.numTel = numTel;
+        this.idDemande = idDemande;
+    }
+    
+
+    public OffreCovoiturage(int id, String matricule, String marque, Date dateD, String lieuD, String lieuA, String dispo, int nbPlace, String numTel, int idDemande, double distance) {
         this.id = id;
         this.matricule = matricule;
         this.marque = marque;
@@ -31,18 +52,32 @@ public class OffreCovoiturage {
         this.lieuD = lieuD;
         this.lieuA = lieuA;
         this.dispo = dispo;
-        this.ndPlace = ndPlace;
+        this.nbPlace = nbPlace;
         this.numTel = numTel;
-        this.idUsr = idUsr;
-        this.idAvis = idAvis;   
         this.idDemande = idDemande;
     }
 
-  
-  
-
     
 
+    //public OffreCovoiturage(String text, String text0, String text1, String text2, String text3, String text4, String text5, String text6) {
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //}
+
+    public OffreCovoiturage(int id, String matricule, String marque, Date dateD, String lieuD, String lieuA, String dispo, int nbPlace, String numTel) {
+    }
+
+    //public OffreCovoiturage(int aInt, String string, String string0, Date date, String string1, String string2, String string3, int aInt0, int aInt1) {
+    //}
+
+    public OffreCovoiturage(String matricule, String marque, Date dateD, String lieuD, String lieuA, String dispo, int nbPlace, String numTel) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+
+
+    public double getDistance() {
+        return distance;
+    }
 
     public int getId() {
         return id;
@@ -68,28 +103,27 @@ public class OffreCovoiturage {
         return lieuA;
     }
 
-    public boolean isDispo() {
+    public String isDispo() {
         return dispo;
     }
 
-    public int getNdPlace() {
-        return ndPlace;
+    public int getNbPlace() {
+        return nbPlace;
     }
 
     public String getNumTel() {
         return numTel;
     }
 
-    public int getIdUsr() {
-        return idUsr;
-    }
-
-    public int getIdAvis() {
-        return idAvis;
-    }
 
     public int getIdDemande() {
         return idDemande;
+    }
+    
+    
+    
+    public void setDistance(double distance) {
+        this.distance = distance;
     }
 
     public void setId(int id) {
@@ -116,25 +150,18 @@ public class OffreCovoiturage {
         this.lieuA = lieuA;
     }
 
-    public void setDispo(boolean dispo) {
+    public void setDispo(String dispo) {
         this.dispo = dispo;
     }
 
-    public void setNdPlace(int ndPlace) {
-        this.ndPlace = ndPlace;
+    public void setNbPlace(int nbPlace) {
+        this.nbPlace = nbPlace;
     }
 
     public void setNumTel(String numTel) {
         this.numTel = numTel;
     }
 
-    public void setIdUsr(int idUsr) {
-        this.idUsr = idUsr;
-    }
-
-    public void setIdAvis(int idAvis) {
-        this.idAvis = idAvis;
-    }
 
     public void setIdDemande(int idDemande) {
         this.idDemande = idDemande;
@@ -142,8 +169,9 @@ public class OffreCovoiturage {
 
     @Override
     public String toString() {
-        return "OffreCovoiturage{" + "id=" + id + ", matricule=" + matricule + ", marque=" + marque + ", dateD=" + dateD + ", lieuD=" + lieuD + ", lieuA=" + lieuA + ", dispo=" + dispo + ", ndPlace=" + ndPlace + ", numTel=" + numTel + ", idUsr=" + idUsr + ", idAvis=" + idAvis + ", idDemande=" + idDemande + '}';
+        return "OffreCovoiturage{" + "id=" + id + ", matricule=" + matricule + ", marque=" + marque + ", dateD=" + dateD + ", lieuD=" + lieuD + ", lieuA=" + lieuA + ", dispo=" + dispo + ", nbPlace=" + nbPlace + ", numTel=" + numTel + ", idDemande=" + idDemande + ", distance=" + distance + '}';
     }
-    
-    
+
+
+
 }

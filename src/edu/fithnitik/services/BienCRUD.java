@@ -1,8 +1,12 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package edu.fithnitik.services;
 
 import edu.fithnitik.entities.Bien;
-import edu.fithnitik.interfaces.InterfaceCRUD;
+import edu.fithnitik.entities.CalculeDistance;
 import edu.fithnitik.utils.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,98 +22,110 @@ import java.util.logging.Logger;
  *
  * @author Nadhem
  */
-public class BienCRUD  {
-    private Connection cnx;
-    public BienCRUD()
-    {
-        cnx=MyConnection.getInstance().getCnx();
-    }
-    
-    public void create(Bien t) {
-        try {
-            String requete = "INSERT INTO Bien(nomRecepteur,description,reference,telRecept,quantite)"+"values(?,?,?,?,?)";
-            PreparedStatement pst = MyConnection.getInstance().getCnx()
-                    .prepareStatement(requete);
-            
-            pst.setString(1, t.getNomRecepteur());
-            pst.setString(2, t.getDescription());
-            pst.setString(3, t.getReference());
-            pst.setString(4, t.getTelRecept());
-            pst.setInt(5, t.getQuantite());
-            pst.executeUpdate();
-            System.out.println("Bien ajouté");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+public class BienCRUD {
+        private final Connection cnx;
+        
+        public BienCRUD(){
+            cnx = MyConnection.getInstance().getCnx();
         }
-    }
-
-    
-    public void update(Bien t) {
-        try {
-            String requete= "UPDATE bien SET nomRecepteur=?,description=?,reference=?,telRecept=?,quantite=? WHERE id=?";
-            PreparedStatement pst = MyConnection.getInstance().getCnx()
-                    .prepareStatement(requete);
-            
-            pst.setString(1, t.getNomRecepteur());
-            pst.setString(2, t.getDescription());
-            pst.setString(3, t.getReference());
-            pst.setString(4, t.getTelRecept());
-            pst.setInt(5, t.getQuantite());
-            pst.setInt(6, t.getId());
-            pst.executeUpdate();
-            System.out.println("Bien modifié");
-        } catch (SQLException ex) {
-            Logger.getLogger(BienCRUD.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    
-    public void delete(Bien t) {
-        try {
-            String requete = "DELETE FROM Bien WHERE id=?";
-            PreparedStatement pst = MyConnection.getInstance().getCnx()
-                    .prepareStatement(requete);
-            pst.setInt(1, t.getId());
-            int row = pst.executeUpdate();
-            if(row==1)
-            {
-                System.out.println("Bien supprimé");
+        
+       /* public void create(Bien t){
+            try {
+                String requete = "INSERT INTO Bien(lieud, lieua, dated, num)"+ "values(?,?,?,?)";
+                PreparedStatement pst = MyConnection.getInstance().getCnx()
+                        .prepareStatement(requete);
+                pst.setString(1,t.getLieud());
+                pst.setString(2,t.getLieua());
+                pst.setDate(3,t.getDated());
+                pst.setString(4,t.getNum());
+                pst.executeUpdate();
+                System.out.println("Bien ajouté");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
             }
-            else
-            {
-                System.out.println(row);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(BienCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    
-    public List<Bien> selectAll() {
-         List<Bien> myList = new ArrayList<>();
+        
+        public void update(Bien t){
+            try {
+                String requete = "UPDATE bien SET id=?,lieud=?,lieua=?,dated=?,num=? WHERE id=?";
+                PreparedStatement pst = MyConnection.getInstance().getCnx()
+                        .prepareStatement(requete);
+                pst.setString(1, t.getLieud());
+                pst.setString(2, t.getLieua());
+                pst.setDate(3, t.getDated());
+                pst.setString(4, t.getNum());
+                System.out.println("Bien modifié");
+            } catch (SQLException ex) {
+                Logger.getLogger(BienCRUD.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        public void delete(Bien t){
+            
+            try {
+                String requete = "DELETE FROM Bien WHERE id=?";
+                PreparedStatement pst = MyConnection.getInstance().getCnx()
+                        .prepareStatement(requete);
+                pst.setInt(1, t.getId());
+                int row = pst.executeUpdate();
+                if (row == 1) {
+                    System.out.println("Bien supprimé");
+                } else {
+                    System.out.println(row);
+                    
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(BienCRUD.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }*/
+        
+        public List<Bien> sellectALL() {
+            List<Bien> myList = new ArrayList<>();
+            try {
+                String requete = "SELECT * FROM Bien";
+                Statement st = MyConnection.getInstance().getCnx()
+                        .createStatement();
+                ResultSet rs = st.executeQuery(requete);
+                while (rs.next()){
+                    Bien b = new Bien();
+                    b.setId(rs.getInt(1));
+                    b.setLieud(rs.getString(2));
+                    b.setLieua(rs.getString(3));
+                    b.setDated(rs.getDate(4));
+                    b.setNum(rs.getString(5));
+                    double latdepart = rs.getDouble("latitude_depart");
+                    double londepart = rs.getDouble("longitude_depart");
+                    double latarriver = rs.getDouble("latitude_arrivee");
+                    double lonarriver = rs.getDouble("longitude_arrivee");
+                    double distance = CalculeDistance.distance(latdepart, londepart, latarriver, lonarriver);
+            
+                    myList.add(b);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(BienCRUD.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return myList;
+        }
+        
+        
+        /*    public List<Bien> readAll() {
+        String requete = "SELECT user.*, role.id_role, role.type_role FROM user INNER JOIN role ON user.id_role = role.id_role";
+        List<Bien> list = new ArrayList<>();
         try {
-           
-            String requete = "SELECT * FROM Bien";
-            Statement st = MyConnection.getInstance().getCnx()
-                    .createStatement();
+            Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(requete);
-            while(rs.next())
-            {
-                Bien b = new Bien();
-                b.setId(rs.getInt(1));
-                b.setNomRecepteur(rs.getString(2));
-                b.setDescription(rs.getString(3));
-                b.setReference(rs.getString(4));
-                b.setTelRecept(rs.getString(5));
-                b.setQuantite(rs.getInt(6));
-                myList.add(b);
-                
+            while (rs.next()) {
+
+                Bien t;
+                t = new Bien(rs.getInt("id"), rs.getString("lieud"), rs.getString("lieua"), rs.getDate("dated")rs.getInt("num"));
+                list.add(t);
             }
-            
         } catch (SQLException ex) {
             Logger.getLogger(BienCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return myList;
-    }
+        return list;
+    }*/
+        
+
     
 }
