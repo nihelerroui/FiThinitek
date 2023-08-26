@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- <?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?> -->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="704.0" prefWidth="1362.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fithnitek.gui.OffreCovoiturageController">
+   <children>
+      <Label layoutX="76.0" layoutY="65.0" />
+      <DatePicker fx:id="dateD" layoutX="281.0" layoutY="146.0" promptText="date de depart" />
+      <Button fx:id="b_ajouter" layoutX="281.0" layoutY="467.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #ff9a13;" text="Ajouter" />
+      <Button fx:id="b_modifier" layoutX="281.0" layoutY="536.0" mnemonicParsing="false" onAction="#Edit" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #ff9a13;" text="Modifier" />
+      <Button fx:id="b_supprimer" layoutX="281.0" layoutY="599.0" mnemonicParsing="false" onAction="#deleteOffre" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #ff9a13;" text="Supprimer" />
+      <TextField fx:id="dispo" layoutX="281.0" layoutY="191.0" promptText="disponible:" />
+      <TextField fx:id="matricule" layoutX="281.0" layoutY="286.0" promptText="matricule:" />
+      <TextField fx:id="marque" layoutX="281.0" layoutY="340.0" promptText="marque:" />
+      <TextField fx:id="numTel" layoutX="281.0" layoutY="396.0" promptText="numero de telephone:" />
+      <TableView fx:id="table" layoutX="501.0" layoutY="76.0" prefHeight="554.0" prefWidth="815.0">
+         <columns>
+            <TableColumn fx:id="tdepart" prefWidth="84.0" text="depart" />
+            <TableColumn fx:id="tarriver" prefWidth="78.0" text="arriver" />
+            <TableColumn fx:id="tdate" prefWidth="81.0" text="date" />
+            <TableColumn fx:id="tdispo" prefWidth="103.0" text="disponible" />
+            <TableColumn fx:id="nbplaces" prefWidth="114.0" text="nombre de place" />
+            <TableColumn fx:id="tmatricule" prefWidth="108.0" text="matricule" />
+            <TableColumn fx:id="tmarque" prefWidth="75.0" text="marque" />
+            <TableColumn fx:id="tnumtel" prefWidth="83.0" text="telephone" />
+            <TableColumn fx:id="tdistance" prefWidth="121.0" text="distance" />
+         </columns>
+      </TableView>
+      <Button fx:id="bsms" layoutX="1095.0" layoutY="650.0" mnemonicParsing="false" onAction="#sms" prefHeight="31.0" prefWidth="187.0" style="-fx-background-color: #ff9a13;" text="Envoyer un message" />
+      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="704.0" prefWidth="205.0" style="-fx-background-color: #7035a1;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1157.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="b_offre" layoutX="15.0" layoutY="214.0" mnemonicParsing="false" onAction="#offre" prefHeight="31.0" prefWidth="176.0" style="-fx-background-color: #ff9a13;" text="Offre Covoiturage" />
+            <Button fx:id="b_bien" layoutX="15.0" layoutY="266.0" mnemonicParsing="false" onAction="#bien" prefHeight="31.0" prefWidth="176.0" style="-fx-background-color: #ff9a13;" text="Transport du bien" />
+         </children>
+      </AnchorPane>
+      <ComboBox fx:id="lieuD" layoutX="282.0" layoutY="68.0" prefHeight="28.0" prefWidth="180.0" promptText="Depart" />
+      <ComboBox fx:id="lieuA" layoutX="282.0" layoutY="105.0" prefHeight="28.0" prefWidth="180.0" promptText="Arriver" />
+      <Separator layoutX="205.0" layoutY="54.0" prefHeight="11.0" prefWidth="1155.0" />
+      <ComboBox fx:id="nomplace" layoutX="282.0" layoutY="246.0" prefHeight="28.0" prefWidth="180.0" promptText="Nombre de places" />
+   </children>
+</AnchorPane>
